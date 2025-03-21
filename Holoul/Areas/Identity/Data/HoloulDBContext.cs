@@ -1,4 +1,5 @@
 ﻿using Holoul.Areas.Identity.Data;
+using Holoul.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,12 @@ public class EDbContext : IdentityDbContext<HoloulUser, IdentityRole, string>
         : base(options)
     {
     }
+
+    public DbSet<AISetting> AISettings { get; set; }
+    public DbSet<AISolutionStep> AISolutionSteps { get; set; }
+    public DbSet<Category> Categorys { get; set; }
+    public DbSet<Problem> Problems { get; set; }
+
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
